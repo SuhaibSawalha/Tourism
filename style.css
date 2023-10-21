@@ -326,6 +326,7 @@ video {
 #places .card {
   transition: transform 0.5s ease-in-out;
   height: 500px;
+  overflow: hidden;
 }
 #places .card:hover {
   transform: scale(1.15);
@@ -333,4 +334,69 @@ video {
 }
 #places img {
   height: 200px;
+}
+
+/*Trips Styling*/
+#trips .col-12 {
+  text-align: right;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  position: relative;
+}
+#trips .col-12 > p:nth-child(2) {
+  font-family: "El Messiri", sans-serif;
+  font-size: 2rem;
+  position: relative;
+  direction: ltr;
+}
+#trips .col-12 > p:nth-child(2) span {
+  font-size: 1.7rem;
+  color: gold;
+  position: absolute;
+  top: -5px;
+  margin-left: -5px;
+}
+#trips .col-12 div p {
+  margin-bottom: 0;
+}
+#trips .col-12 div {
+  height: 30px;
+}
+.bi-check {
+  color: green;
+  font-size: 1.5rem;
+}
+.bi-x {
+  color: red;
+  font-size: 1.5rem;
+}
+.bi-x + p {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+#trips h6 {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 10px;
+  background-color: #dc3545;
+}
+
+/*Contact Styling*/
+#contact .col-12 {
+}
+.contact-right,
+.contact-left {
+  height: 500px;
+}
+.contact-right .col-12 {
+  height: 250px;
 }

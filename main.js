@@ -20,7 +20,7 @@ function lineOnMap(h5, change = 1) {
   }px`;
   h5.style.color = "blue";
 }
-lineOnMap(currentH5);
+window.addEventListener("scroll", () => lineOnMap(currentH5));
 document.querySelectorAll("#map h5").forEach((h5) => {
   h5.addEventListener("mouseover", () => {
     lineOnMap(h5, 0);
