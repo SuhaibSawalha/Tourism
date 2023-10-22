@@ -18,7 +18,7 @@ function lineOnMap(h5, change = 1) {
     parentRect.top -
     1
   }px`;
-  h5.style.color = "blue";
+  h5.style.color = "#0d6efd";
 }
 window.addEventListener("scroll", () => lineOnMap(currentH5));
 document.querySelectorAll("#map h5").forEach((h5) => {
@@ -29,3 +29,34 @@ document.querySelectorAll("#map h5").forEach((h5) => {
     lineOnMap(currentH5, 0);
   });
 });
+
+/**/
+const hrefs = [
+  "#",
+  "#cities",
+  "#quds",
+  "#map",
+  "#places",
+  "#trips",
+  "#contact",
+];
+function navbarColor() {
+  for (let i = 0; i < hrefs.length; ++i) {
+    document.querySelector(
+      `.nav-item a[href="${hrefs[i]}"]`
+    ).parentElement.style.backgroundColor = "#fff";
+  }
+  for (let i = hrefs.length - 1; i > 0; --i) {
+    if (window.scrollY >= document.querySelector(hrefs[i]).offsetTop - 300) {
+      document.querySelector(
+        `.nav-item a[href="${hrefs[i]}"]`
+      ).parentElement.style.backgroundColor = "#fcac0d";
+      return;
+    }
+  }
+  document.querySelector(
+    `.nav-item a[href="#"]`
+  ).parentElement.style.backgroundColor = "#fcac0d";
+}
+window.addEventListener("scroll", navbarColor);
+window.addEventListener("load", navbarColor);

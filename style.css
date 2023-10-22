@@ -39,7 +39,7 @@ section {
   height: 100%;
 }
 
-/*Global Using*/
+/* ! Global Using*/
 
 .darken {
   z-index: 3;
@@ -59,21 +59,20 @@ section {
   text-align: center;
 }
 
-/*Body Styling*/
+/* ! Body Styling*/
 body {
   background-color: #f2f2f2 !important;
 }
 
-/*Header Styling*/
+/* ! Header Styling*/
 
 nav {
   z-index: 9999999;
+  align-items: start !important;
 }
 
-.navbar-nav a {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.navbar-brand {
+  margin: 0 !important;
 }
 
 header i {
@@ -86,20 +85,50 @@ header i {
 }
 
 .nav-item {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
   background-color: white;
-  transition: background-color 0.5s ease;
-  margin: 10px 0;
-  position: relative;
+  transition: background-color 0.5s ease, width 0.5s ease;
+  margin: 5px 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+.nav-item a {
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  width: 60px;
+}
+.nav-item > div {
+  display: inline-block;
+  max-width: 0px;
+  height: 100%;
+  font-size: 1.5rem;
+  /* padding-top: 10px; */
+  transform: translate(0, 5px);
 }
 
 .nav-item:hover {
-  background-color: #8b3c48;
+  text-align: right;
+  background-color: #fcac0d !important;
+  /* border-radius: 50px; */
+  width: 180px;
+  /* display: flex; */
+}
+.nav-item:hover a {
+  /* width: 200px; */
+}
+.nav-item:hover img {
+  /* right: 0;
+  transform: translate(-15px, -50%); */
+}
+.nav-item:hover > div {
+  transition: max-width 1s ease;
+  max-width: 200px;
 }
 
-/*Video Styling*/
+/* ! Video Styling*/
 
 #video {
   width: 100%;
@@ -143,7 +172,7 @@ video {
   }
 }
 
-/*Cities Styling*/
+/* ! Cities Styling*/
 #cities .card {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -154,7 +183,7 @@ video {
   height: 200px;
 }
 
-/*Quds Styling*/
+/* ! Quds Styling*/
 #quds {
   width: 100%;
   height: 80vh;
@@ -203,7 +232,25 @@ video {
   }
 }
 
-/*Map Styling*/
+/*Controlling text in quds*/
+@media (max-width: 600px) {
+  #quds h2 {
+    font-size: 1.2rem;
+  }
+  #quds p {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 410px) {
+  #quds h2 {
+    font-size: 1rem;
+  }
+  #quds p {
+    font-size: 0.6rem;
+  }
+}
+
+/* ! Map Styling*/
 #map {
   min-height: 500px;
   width: 100%;
@@ -213,11 +260,6 @@ video {
 }
 #map > div > div div:first-child {
   position: relative;
-  /* min-height: max(900px, 100%);
-  background-image: url("./img/map.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center top; */
 }
 #map > div > div > div:first-child::before {
   background-image: url("./img/map.jpg");
@@ -322,53 +364,87 @@ video {
   }
 }
 
-/*Places Styling*/
+/* ! Places Styling*/
 #places .card {
-  transition: transform 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   height: 500px;
   overflow: hidden;
 }
 #places .card:hover {
   transform: scale(1.15);
   cursor: pointer;
+  border-bottom: 5px solid #0d6efd;
 }
 #places img {
   height: 200px;
 }
 
-/*Trips Styling*/
+/* ! Trips Styling*/
 #trips .col-12 {
-  text-align: right;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 40px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
   position: relative;
 }
-#trips .col-12 > p:nth-child(2) {
+
+#trips .col-12 > div > div:nth-child(2) {
+  height: 40px;
+}
+
+#trips .col-12 > div > div:nth-child(2) > p:first-child {
   font-family: "El Messiri", sans-serif;
   font-size: 2rem;
   position: relative;
   direction: ltr;
 }
-#trips .col-12 > p:nth-child(2) span {
+
+#trips .col-12 > div > div:nth-child(2) > p:nth-child(2) {
+  opacity: 0.7;
+  margin-right: 5px;
+}
+
+#trips .col-12 > div > div:nth-child(2) > p:first-child span {
   font-size: 1.7rem;
   color: gold;
   position: absolute;
   top: -5px;
   margin-left: -5px;
 }
-#trips .col-12 div p {
+
+#trips .col-12 > div > div:nth-child(2) > p {
   margin-bottom: 0;
 }
-#trips .col-12 div {
-  height: 30px;
+
+#trips .col-12 > div {
+  border-top: 5px solid #0d6efd;
+  border-bottom: 3px solid #0d6efd;
+  padding: 40px;
+  padding-left: 10px;
+  text-align: right;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background: linear-gradient(45deg, #f0f9ff 85%, #eaf1f5 15%);
 }
+@media (max-width: 400px) {
+  #trips .col-12 > div {
+    padding: 20px;
+    padding-left: 5px;
+  }
+}
+
+#trips .col-12 > div > div:nth-child(2) ~ div {
+  min-height: 40px;
+}
+
+#trips .col-12 > div > div:nth-child(2) ~ div p {
+  margin-bottom: 0;
+}
+
 .bi-check {
+  display: flex;
+  align-items: start;
   color: green;
   font-size: 1.5rem;
 }
+
 .bi-x {
   color: red;
   font-size: 1.5rem;
@@ -377,9 +453,10 @@ video {
   opacity: 0.5;
   text-decoration: line-through;
 }
+
 #trips h6 {
   position: absolute;
-  top: -20px;
+  top: -15px;
   left: 50%;
   transform: translate(-50%);
   width: 80px;
@@ -390,13 +467,101 @@ video {
   background-color: #dc3545;
 }
 
-/*Contact Styling*/
-#contact .col-12 {
-}
+/* ! Contact Styling*/
 .contact-right,
 .contact-left {
-  height: 500px;
+  height: 440px;
+}
+.contact-right .row {
+  height: 220px;
 }
 .contact-right .col-12 {
-  height: 250px;
+  height: 210px;
+}
+.sub-section {
+  padding: 15px 30px 15px 5px;
+  text-align: right;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #ebeef8;
+}
+.sub-section i {
+  color: #0d6efd;
+  font-size: 2.5rem;
+}
+.contact-left {
+  border-radius: 10px;
+  background-color: #ebeef8;
+}
+
+.form-control {
+  margin-top: 20px;
+}
+input[aria-label="Username"] {
+  margin-left: 15px;
+}
+#textarea {
+  resize: none;
+  height: 220px;
+}
+
+@media (max-width: 1199.5px) {
+  .bi-envelope + h3 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 991.5px) {
+  .contact-right {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 575.5px) {
+  .contact-right {
+    height: 870px;
+  }
+  .contact-right .row {
+    height: 440px;
+  }
+  .contact-right .col-12 {
+    padding: 0;
+  }
+  form .input-group:first-child input {
+    width: 100%;
+  }
+  input[aria-label="Username"] {
+    margin-left: 0;
+  }
+  .contact-left {
+    height: 480px;
+  }
+}
+
+/* ! footer Styling*/
+
+footer {
+  background-color: #396dbd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+footer > div > i {
+  font-size: 1.7rem;
+  transition: color 0.8s ease;
+}
+footer > div > i:hover {
+  cursor: pointer;
+  color: #fcac0d;
+}
+.bi-c-circle {
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+@media (max-width: 400px) {
+  footer {
+    padding: 20px;
+  }
+  footer h6 {
+    font-size: 0.8rem;
+  }
 }
